@@ -21,7 +21,7 @@ export class AuthService {
 
     }
 
-    verifyToken ():  Observable<{valid: boolean; user: string}>{
+    verifyToken ():  Observable<{valid: boolean; user: any}>{
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('access-token'))
         return this._httpClient.get<{valid: boolean; user: string}>('http://localhost:3000/verify-token', { headers })
     }
